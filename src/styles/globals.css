@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body::-webkit-scrollbar {
+  width: 5px; /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: gray; /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: blue; /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+  /* border: 3px solid orange;  creates padding around scroll thumb */
+}
+
+/* html, body, heading */
+@layer base {
+  body {
+    @apply bg-white;
+  }
+
+  header {
+    @apply fixed top-0 z-50 flex w-full items-center justify-between py-4 px-4 transition-all lg:px-10 lg:py-6;
+  }
+}
+
+@layer components {
+  .headerLink {
+    @apply cursor-pointer text-base font-semibold text-[#000000] transition duration-[.4s] hover:text-[#404EED];
+  }
+
+  .bannerButton {
+    @apply flex items-center gap-x-2;
+  }
+}
+
+.bg-register {
+  background: var(--gradient),
+    url('https://img.freepik.com/free-photo/cafe-frankfurt-germany_1268-20912.jpg?w=740&t=st=1696667284~exp=1696667884~hmac=4d1098268f074cf20c97b3380ea795d6a32cf59580e3d2262cbb43ef41cf6b03');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bg-contact {
+  background: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
+}
+
+.bg-login {
+  background: url('https://images.unsplash.com/photo-1606660265514-358ebbadc80d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1575&q=80');
+}
+
+.bg-register {
+  background: url('https://img.freepik.com/free-photo/front-view-stacked-books-graduation-cap-diploma-education-day_23-2149241011.jpg?w=360&t=st=1697642413~exp=1697643013~hmac=b278b1da3ce8b6b734a3bb5ab25f930410a19a1e37206208c230888bbc9c5b78');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bg-landing {
+  background: var(--gradients),
+    url('https://img.freepik.com/free-photo/diverse-multiethnic-kids-junior-school-students-group-study-together-classroom-generative-ai_1258-166493.jpg?t=st=1697758937~exp=1697762537~hmac=9fe57fa35cbdd8c3e6dcca58fd1e0e6ee6c79dcc643cbe1327f318ba7f444b62&w=900');
+  /* background-position: ; */
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.bg-chat {
+  background: url(/illustration.png);
+  background-size: cover;
+  background-position: top;
+  color: rgb(245, 245, 245);
+}
+
+:root {
+  --main-color: #ff6347;
+  --main-color-dark: #43121d;
+  --white-color: #fff;
+  --black-color: #000;
+  /* --box-shadow: 10px 2px 5px rgba(0, 0, 0, 0.05); */
+  --gradient: linear-gradient(
+    to right,
+    rgba(31, 27, 28, 0.514),
+    rgba(31, 27, 28, 0.514)
+  );
+
+  --gradients: linear-gradient(
+    to right,
+    rgba(43, 39, 39, 0.384),
+    rgba(43, 39, 39, 0.384)
+  );
+  /* --gray-gradient: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(171, 186, 171, 0.5)); */
+  /* Blue - #404EED */
+}
+
+/* Loading animation  */
+@keyframes spinner {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  animation: spinner;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+/* Remove input zoom on mobile devices */
+@media (max-width: 640px) {
+  input:focus {
+    font-size: 16px !important;
+  }
+}
+
+/* Remove print from devices */
+@media print {
+  .pdf-container {
+    display: none;
+  }
+}
+
+.uni-drop::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.uni-drop::-webkit-scrollbar-track {
+  background-color: grey;
+}
+
+.uni-drop::-webkit-scrollbar-thumb {
+  background-color: #008cfff1;
+  border-radius: 25px;
+}
+
+.toast {
+  @apply items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800 fixed z-50 top-2 left-1;
+}
