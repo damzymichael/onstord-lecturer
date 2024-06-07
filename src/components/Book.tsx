@@ -15,7 +15,7 @@ const variants = {
   })
 };
 
-const Book = ({book, key}: {book: Book; key: number}) => {
+const BookComponent = ({book, key}: {book: Book; key: number}) => {
   return (
     <motion.li
       className='bg-gray-100 flex gap-3 hover:shadow-md hover:shadow-blue-500/50 sm:min-w-[350px] w-11/12 sm:w-[45%] md:w-[30%]'
@@ -66,4 +66,4 @@ const Book = ({book, key}: {book: Book; key: number}) => {
   );
 };
 
-export default Book;
+export default BookComponent
