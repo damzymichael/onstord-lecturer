@@ -17,13 +17,13 @@ function Error({error, reset}: ErrorPageProps) {
           Something went wrong
         </p>
 
-        <div className='mx-[auto] flex gap-2 justify-center'>
-          <LoadingButton
-            isPending={false}
-            fullWidth={false}
-            text='Retry'
+        <div className='mx-auto flex gap-2 justify-center'>
+          <button
+            className='bg-[#404EED] px-3 py-2 rounded-lg text-sm text-white tracking-wide mt-2 uppercase'
             onClick={reset}
-          />
+          >
+            Retry
+          </button>
           <button
             className='ml-3 bg-red-600 px-3 py-2 rounded-lg text-sm text-white tracking-wide mt-2 uppercase'
             onClick={SignOut}
