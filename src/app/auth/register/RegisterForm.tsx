@@ -44,7 +44,7 @@ const RegisterForm = () => {
 
     //?If Universiy matches one in list
     const universityMatch = allUni.some(
-      institution => institution === formDetails.institutions
+      institution => institution === formDetails.institution
     );
     if (!universityMatch)
       return toggleToast(2000, 'warning', 'Invalid Institution');
