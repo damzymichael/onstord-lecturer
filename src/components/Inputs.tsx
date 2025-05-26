@@ -171,7 +171,7 @@ interface SearchInputProps extends InputProps, SearchResult<string> {}
 interface SearchInputv2Props extends InputProps {
   filterData: string[];
   required?: boolean;
-  setValue: (value: string) => void;
+  setValue?: (value: string) => void;
 }
 
 export const SearchInputv2 = ({
@@ -231,7 +231,7 @@ export const SearchInputv2 = ({
               className='block px-4 py-2 cursor-pointer hover:bg-slate-400'
               onClick={() => {
                 if (searchInputRef.current) searchInputRef.current.value = data;
-                setValue(data);
+                if (setValue) setValue(data);
                 setSearchResult([]);
               }}
             >
