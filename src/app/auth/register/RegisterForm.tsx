@@ -54,7 +54,6 @@ const RegisterForm = () => {
     if (!universityMatch)
       return toggleToast(2000, 'warning', 'Invalid Institution');
 
-    console.log(formDetails)
     //?Check for non matching pasword
     if (error) return toggleToast(2000, 'warning', 'Passwords do not match');
     //?Check for password length
