@@ -1,5 +1,5 @@
 'use client';
-import {ChangeEvent, FormEvent} from 'react';
+import {ChangeEvent, FormEvent, useEffect} from 'react';
 import {useState, Fragment} from 'react';
 import {MdKeyboardArrowRight} from 'react-icons/md';
 import {FormDetails} from '@/types/onstord';
@@ -18,12 +18,17 @@ const RegisterForm = () => {
   const {toggleToast} = useToast();
   const [formDetails, setFormDetails] = useState<FormDetails>(initFormDetails);
   const [error, setError] = useState(false);
+  const [institution, setInstitution] = useState('');
 
   //?handle form changes
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
-    setFormDetails({...formDetails, [e.target.name]: e.target.value});
+    if (e.target.name === 'institutions') {
+      setFormDetails({...formDetails, institutions: institution});
+    } else {
+      setFormDetails({...formDetails, [e.target.name]: e.target.value});
+    }
   };
 
   //?Validate password match onChange
@@ -44,11 +49,12 @@ const RegisterForm = () => {
 
     //?If Universiy matches one in list
     const universityMatch = allUni.some(
-      institution => institution === formDetails.institutions
+      institution => institution === institution
     );
     if (!universityMatch)
       return toggleToast(2000, 'warning', 'Invalid Institution');
 
+    console.log(formDetails)
     //?Check for non matching pasword
     if (error) return toggleToast(2000, 'warning', 'Passwords do not match');
     //?Check for password length
@@ -61,7 +67,7 @@ const RegisterForm = () => {
       name: `${title} ${firstName.trim()} ${lastName.trim()}`,
       email: formDetails.email,
       phoneNumber,
-      institutions: {values: [formDetails.institutions]},
+      institutions: {values: [institution]},
       password: formDetails.confirmPassword
     };
     mutate(newUser);
@@ -121,6 +127,7 @@ const RegisterForm = () => {
         handleChange={handleChange}
         filterData={allUni}
         disabled={isPending}
+        setValue={setInstitution}
         required
       />
 
