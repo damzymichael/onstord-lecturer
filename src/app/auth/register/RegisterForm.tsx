@@ -44,7 +44,7 @@ const RegisterForm = () => {
 
     //?If Universiy matches one in list
     const universityMatch = allUni.some(
-      institution => institution === formDetails.institution
+      institution => institution === formDetails.institutions
     );
     if (!universityMatch)
       return toggleToast(2000, 'warning', 'Invalid Institution');
@@ -115,7 +115,7 @@ const RegisterForm = () => {
       />
 
       <SearchInputv2
-        name='institution'
+        name='institutions'
         label='Current Institution'
         placeholder='Federal University of Technology'
         handleChange={handleChange}
